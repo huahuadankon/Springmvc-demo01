@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.command_dispatcher_system.mapper.UserMapper" >
+
+    <select id="selectUserByPhone" resultType="com.example.command_dispatcher_system.entity.User">
+        select uid as id,user_name as username ,did as deptId,phone,password,salt,state from user_info where phone = #{phone}
+    </select>
+
+    <insert id="insertOneUser" parameterType="com.example.command_dispatcher_system.entity.User">
+        insert into user_info (uid,user_name,did,phone,password) values (#{id},#{username},#{deptId},#{phone},#{password})
+    </insert>
+
+<!--    <select id="selectDepartmentUserList" resultType="com.example.shixunapp.entity.User">-->
+<!--        select uid,user_name,did,phone,state from user_info where did = #{did}-->
+<!--    </select>-->
+
+    <select id="getGroupNameById" resultType="java.lang.String">
+        select ect name
+        from user
+        where user_id = #{creator}
+    </select>
+
+    <select id="selectOneUser" resultType="com.example.command_dispatcher_system.entity.User">
+        select uid as id,user_name as username ,did as deptId,phone,password,salt,state from
+        user_info where user_name = #{username} AND password = #{password}
+    </select>
+
+</mapper>

@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: shixunapp
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shixunapp?allowMultiQueries=true&serverTimezone=GMT%2B8&useSSL=true
+    username: root
+    password: lyc20040310
+  data:
+    redis:
+      host: localhost
+      password: 123456
+      port: 6379
+      database: 0
+
+#mybatis 框架的配置信息（对jdbc的封装）
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
